@@ -1,0 +1,22 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: provider-transaction
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.247.145:8848
+    alibaba:
+      seata:
+        tx-service-group: tx-group
+dubbo:
+  scan:
+    base-packages: com.zzp.alibaba.seata.provider.service
+  protocol:
+    name: dubbo
+    port: -1
+  provider:
+    loadbalance: roundrobin
+  registry:
+    address: nacos://192.168.247.145:8848
